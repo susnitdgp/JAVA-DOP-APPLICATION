@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://dop.pradip.ntpc.co.in/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOPContentProviderService" targetNamespace="http://dop.pradip.ntpc.co.in/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dop.pradip.ntpc.co.in/" elementFormDefault="unqualified" targetNamespace="http://dop.pradip.ntpc.co.in/" version="1.0">
+<xs:element name="getClauseBySection" type="tns:getClauseBySection"></xs:element>
+<xs:element name="getClauseBySectionResponse" type="tns:getClauseBySectionResponse"></xs:element>
+<xs:element name="getCurrentPage" type="tns:getCurrentPage"></xs:element>
+<xs:element name="getCurrentPageResponse" type="tns:getCurrentPageResponse"></xs:element>
+<xs:element name="getDopSection" type="tns:getDopSection"></xs:element>
+<xs:element name="getDopSectionResponse" type="tns:getDopSectionResponse"></xs:element>
+<xs:element name="getNextPage" type="tns:getNextPage"></xs:element>
+<xs:element name="getNextPageResponse" type="tns:getNextPageResponse"></xs:element>
+<xs:element name="getPageImage" type="tns:getPageImage"></xs:element>
+<xs:element name="getPageImage2" type="tns:getPageImage2"></xs:element>
+<xs:element name="getPageImage2Response" type="tns:getPageImage2Response"></xs:element>
+<xs:element name="getPageImageResponse" type="tns:getPageImageResponse"></xs:element>
+<xs:element name="getPreviousPage" type="tns:getPreviousPage"></xs:element>
+<xs:element name="getPreviousPageResponse" type="tns:getPreviousPageResponse"></xs:element>
+<xs:element name="getResultBasedOnMetaData" type="tns:getResultBasedOnMetaData"></xs:element>
+<xs:element name="getResultBasedOnMetaDataResponse" type="tns:getResultBasedOnMetaDataResponse"></xs:element>
+<xs:element name="getRomanClauseBySubClauseAndClauseAndSection" type="tns:getRomanClauseBySubClauseAndClauseAndSection"></xs:element>
+<xs:element name="getRomanClauseBySubClauseAndClauseAndSectionResponse" type="tns:getRomanClauseBySubClauseAndClauseAndSectionResponse"></xs:element>
+<xs:element name="getSubClauseByClauseAndSection" type="tns:getSubClauseByClauseAndSection"></xs:element>
+<xs:element name="getSubClauseByClauseAndSectionResponse" type="tns:getSubClauseByClauseAndSectionResponse"></xs:element>
+<xs:element name="getTotalPages" type="tns:getTotalPages"></xs:element>
+<xs:element name="getTotalPagesResponse" type="tns:getTotalPagesResponse"></xs:element>
+<xs:element name="solrSearchResultWithHighlight" type="tns:solrSearchResultWithHighlight"></xs:element>
+<xs:element name="solrSearchResultWithHighlightResponse" type="tns:solrSearchResultWithHighlightResponse"></xs:element>
+<xs:complexType name="getNextPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNextPageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:dopSchema"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="dopSchema">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="page_content" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="page_image" type="tns:byteBuffer"></xs:element>
+      <xs:element minOccurs="0" name="page_no" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType abstract="true" name="byteBuffer">
+    <xs:complexContent>
+      <xs:extension base="tns:buffer">
+        <xs:sequence></xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType abstract="true" name="buffer">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRomanClauseBySubClauseAndClauseAndSection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getRomanClauseBySubClauseAndClauseAndSectionResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPageImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPageImageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getClauseBySection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getClauseBySectionResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPageImage2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPageImage2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="solrSearchResultWithHighlight">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="solrSearchResultWithHighlightResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customSearchResult"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="customSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dop_clause" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="dop_romansubclause" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="dop_section" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="dop_subclause" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="page_content" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="page_id" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="page_no" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getResultBasedOnMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg2" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg3" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getResultBasedOnMetaDataResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customSearchResult"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDopSection">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDopSectionResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getTotalPages">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getTotalPagesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPreviousPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getPreviousPageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:dopSchema"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCurrentPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCurrentPageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:dopSchema"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getSubClauseByClauseAndSection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getSubClauseByClauseAndSectionResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>  </wsdl:types>
+  <wsdl:message name="getNextPageResponse">
+    <wsdl:part element="tns:getNextPageResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNextPage">
+    <wsdl:part element="tns:getNextPage" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRomanClauseBySubClauseAndClauseAndSection">
+    <wsdl:part element="tns:getRomanClauseBySubClauseAndClauseAndSection" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="solrSearchResultWithHighlightResponse">
+    <wsdl:part element="tns:solrSearchResultWithHighlightResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPageImage">
+    <wsdl:part element="tns:getPageImage" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubClauseByClauseAndSectionResponse">
+    <wsdl:part element="tns:getSubClauseByClauseAndSectionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRomanClauseBySubClauseAndClauseAndSectionResponse">
+    <wsdl:part element="tns:getRomanClauseBySubClauseAndClauseAndSectionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClauseBySection">
+    <wsdl:part element="tns:getClauseBySection" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPageImage2">
+    <wsdl:part element="tns:getPageImage2" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDopSectionResponse">
+    <wsdl:part element="tns:getDopSectionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCurrentPageResponse">
+    <wsdl:part element="tns:getCurrentPageResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="solrSearchResultWithHighlight">
+    <wsdl:part element="tns:solrSearchResultWithHighlight" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResultBasedOnMetaData">
+    <wsdl:part element="tns:getResultBasedOnMetaData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPageImage2Response">
+    <wsdl:part element="tns:getPageImage2Response" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDopSection">
+    <wsdl:part element="tns:getDopSection" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTotalPages">
+    <wsdl:part element="tns:getTotalPages" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPreviousPage">
+    <wsdl:part element="tns:getPreviousPage" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPreviousPageResponse">
+    <wsdl:part element="tns:getPreviousPageResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResultBasedOnMetaDataResponse">
+    <wsdl:part element="tns:getResultBasedOnMetaDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCurrentPage">
+    <wsdl:part element="tns:getCurrentPage" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getClauseBySectionResponse">
+    <wsdl:part element="tns:getClauseBySectionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTotalPagesResponse">
+    <wsdl:part element="tns:getTotalPagesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubClauseByClauseAndSection">
+    <wsdl:part element="tns:getSubClauseByClauseAndSection" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPageImageResponse">
+    <wsdl:part element="tns:getPageImageResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DOPContentProviderDelegate">
+    <wsdl:operation name="getNextPage">
+      <wsdl:input message="tns:getNextPage" name="getNextPage">
+    </wsdl:input>
+      <wsdl:output message="tns:getNextPageResponse" name="getNextPageResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRomanClauseBySubClauseAndClauseAndSection">
+      <wsdl:input message="tns:getRomanClauseBySubClauseAndClauseAndSection" name="getRomanClauseBySubClauseAndClauseAndSection">
+    </wsdl:input>
+      <wsdl:output message="tns:getRomanClauseBySubClauseAndClauseAndSectionResponse" name="getRomanClauseBySubClauseAndClauseAndSectionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageImage">
+      <wsdl:input message="tns:getPageImage" name="getPageImage">
+    </wsdl:input>
+      <wsdl:output message="tns:getPageImageResponse" name="getPageImageResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClauseBySection">
+      <wsdl:input message="tns:getClauseBySection" name="getClauseBySection">
+    </wsdl:input>
+      <wsdl:output message="tns:getClauseBySectionResponse" name="getClauseBySectionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageImage2">
+      <wsdl:input message="tns:getPageImage2" name="getPageImage2">
+    </wsdl:input>
+      <wsdl:output message="tns:getPageImage2Response" name="getPageImage2Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solrSearchResultWithHighlight">
+      <wsdl:input message="tns:solrSearchResultWithHighlight" name="solrSearchResultWithHighlight">
+    </wsdl:input>
+      <wsdl:output message="tns:solrSearchResultWithHighlightResponse" name="solrSearchResultWithHighlightResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResultBasedOnMetaData">
+      <wsdl:input message="tns:getResultBasedOnMetaData" name="getResultBasedOnMetaData">
+    </wsdl:input>
+      <wsdl:output message="tns:getResultBasedOnMetaDataResponse" name="getResultBasedOnMetaDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDopSection">
+      <wsdl:input message="tns:getDopSection" name="getDopSection">
+    </wsdl:input>
+      <wsdl:output message="tns:getDopSectionResponse" name="getDopSectionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalPages">
+      <wsdl:input message="tns:getTotalPages" name="getTotalPages">
+    </wsdl:input>
+      <wsdl:output message="tns:getTotalPagesResponse" name="getTotalPagesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousPage">
+      <wsdl:input message="tns:getPreviousPage" name="getPreviousPage">
+    </wsdl:input>
+      <wsdl:output message="tns:getPreviousPageResponse" name="getPreviousPageResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentPage">
+      <wsdl:input message="tns:getCurrentPage" name="getCurrentPage">
+    </wsdl:input>
+      <wsdl:output message="tns:getCurrentPageResponse" name="getCurrentPageResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubClauseByClauseAndSection">
+      <wsdl:input message="tns:getSubClauseByClauseAndSection" name="getSubClauseByClauseAndSection">
+    </wsdl:input>
+      <wsdl:output message="tns:getSubClauseByClauseAndSectionResponse" name="getSubClauseByClauseAndSectionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOPContentProviderServiceSoapBinding" type="tns:DOPContentProviderDelegate">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="getNextPage">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getNextPage">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getNextPageResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRomanClauseBySubClauseAndClauseAndSection">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getRomanClauseBySubClauseAndClauseAndSection">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getRomanClauseBySubClauseAndClauseAndSectionResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageImage">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getPageImage">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getPageImageResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClauseBySection">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getClauseBySection">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getClauseBySectionResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPageImage2">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getPageImage2">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getPageImage2Response">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solrSearchResultWithHighlight">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="solrSearchResultWithHighlight">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="solrSearchResultWithHighlightResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResultBasedOnMetaData">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getResultBasedOnMetaData">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getResultBasedOnMetaDataResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDopSection">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getDopSection">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getDopSectionResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalPages">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getTotalPages">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getTotalPagesResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPreviousPage">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getPreviousPage">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getPreviousPageResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentPage">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getCurrentPage">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getCurrentPageResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubClauseByClauseAndSection">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="getSubClauseByClauseAndSection">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getSubClauseByClauseAndSectionResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOPContentProviderService">
+    <wsdl:port binding="tns:DOPContentProviderServiceSoapBinding" name="DOPContentProviderPort">
+      <soap:address location="https://10.3.0.105:10042/DOP-WS-WAR/DOPContentProviderService"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
